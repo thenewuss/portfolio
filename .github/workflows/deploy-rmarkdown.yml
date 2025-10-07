@@ -11,7 +11,6 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      # Remove the url field - it will be set automatically
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -20,6 +19,9 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
+      
+      - name: Install Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
       
       - name: Install R packages
         run: |
